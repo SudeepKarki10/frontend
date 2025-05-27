@@ -18,17 +18,23 @@ const MyApplications = () => {
     try {
       if (user && user.role === "Employer") {
         axios
-          .get("http://localhost:4000/api/v1/application/employer/getall", {
-            withCredentials: true,
-          })
+          .get(
+            "https://backend-yy8w.onrender.com/api/v1/application/employer/getall",
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             setApplications(res.data.applications);
           });
       } else {
         axios
-          .get("http://localhost:4000/api/v1/application/jobseeker/getall", {
-            withCredentials: true,
-          })
+          .get(
+            "https://backend-yy8w.onrender.com/api/v1/application/jobseeker/getall",
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             setApplications(res.data.applications);
           });
@@ -45,9 +51,12 @@ const MyApplications = () => {
   const deleteApplication = (id) => {
     try {
       axios
-        .delete(`http://localhost:4000/api/v1/application/delete/${id}`, {
-          withCredentials: true,
-        })
+        .delete(
+          `https://backend-yy8w.onrender.com/api/v1/application/delete/${id}`,
+          {
+            withCredentials: true,
+          }
+        )
         .then((res) => {
           toast.success(res.data.message);
           setApplications((prevApplication) =>
@@ -73,13 +82,14 @@ const MyApplications = () => {
       {user && user.role === "Job Seeker" ? (
         <div className="container">
           <center>
-          <h1>My Applications</h1>
+            <h1>My Applications</h1>
           </center>
           {applications.length <= 0 ? (
             <>
               {" "}
               <center>
-              <h4>No Applications Found</h4></center>{" "}
+                <h4>No Applications Found</h4>
+              </center>{" "}
             </>
           ) : (
             applications.map((element) => {
@@ -97,12 +107,12 @@ const MyApplications = () => {
       ) : (
         <div className="container">
           <center>
-          <h1>Applications From Job Seekers</h1>
+            <h1>Applications From Job Seekers</h1>
           </center>
           {applications.length <= 0 ? (
             <>
-            <center>
-              <h4>No Applications Found</h4>
+              <center>
+                <h4>No Applications Found</h4>
               </center>
             </>
           ) : (

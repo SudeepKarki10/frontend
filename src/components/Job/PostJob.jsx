@@ -31,7 +31,7 @@ const PostJob = () => {
     }
     await axios
       .post(
-        "http://localhost:4000/api/v1/job/post",
+        "https://backend-yy8w.onrender.com/api/v1/job/post",
         fixedSalary.length >= 4
           ? {
               title,
@@ -98,7 +98,7 @@ const PostJob = () => {
                   Frontend Web Development
                 </option>
                 <option value="Business Development Executive">
-                Business Development Executive
+                  Business Development Executive
                 </option>
                 <option value="Account & Finance">Account & Finance</option>
                 <option value="Artificial Intelligence">
