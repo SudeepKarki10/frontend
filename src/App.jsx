@@ -18,7 +18,8 @@ import NotFound from "./components/NotFound/NotFound";
 import MyJobs from "./components/Job/MyJobs";
 
 const App = () => {
-  const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
+  const { setIsAuthorized, setUser } = useContext(Context);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -35,7 +36,7 @@ const App = () => {
       }
     };
     fetchUser();
-  }, [isAuthorized, setIsAuthorized, setUser]);
+  }, [setIsAuthorized, setUser]);
 
   return (
     <>
